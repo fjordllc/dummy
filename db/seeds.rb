@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Article.delete_all
+
+30.times do |n|
+  Article.create!(title: "Title #{n}", body: "Body #{n}")
+end
