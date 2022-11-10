@@ -2,6 +2,8 @@
 
 <h1>Articles</h1>
 
+<%= paginate @articles %>
+
 <div id="articles">
   <% @articles.each do |article| %>
     <%= render article %>
@@ -10,5 +12,7 @@
     </p>
   <% end %>
 </div>
+
+<%= paginate @articles %>
 
 <%= link_to "New article", new_article_path %>
