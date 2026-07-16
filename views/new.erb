@@ -1,0 +1,13 @@
+<div class="form-page">
+  <span class="eyebrow">New post</span>
+  <h1>新しい記事を書く</h1>
+  <p class="intro">フォームは <code>application/x-www-form-urlencoded</code> で送信されます。</p>
+  <form action="/articles" method="post">
+    <label for="title">タイトル</label>
+    <input id="title" name="title" type="text" required>
+    <label for="body">本文</label>
+    <textarea id="body" name="body" rows="10" required></textarea>
+    <button type="submit">記事を投稿する</button>
+  </form>
+  <a class="back-link" href="/articles">← 記事一覧へ戻る</a>
+</div>

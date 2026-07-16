@@ -1,0 +1,14 @@
+<div class="page-heading">
+  <div><span class="eyebrow">Latest posts</span><h1>記事一覧</h1></div>
+  <a class="button" href="/articles/new">新しい記事を書く</a>
+</div>
+<section class="article-list">
+  <% @articles.reverse_each do |article| %>
+    <article class="card">
+      <span class="article-number">ARTICLE <%= article[:id] %></span>
+      <h2><a href="/articles/<%= article[:id] %>"><%= h(article[:title]) %></a></h2>
+      <p><%= h(article[:body].lines.first.to_s.strip) %></p>
+      <a class="read-more" href="/articles/<%= article[:id] %>">記事を読む →</a>
+    </article>
+  <% end %>
+</section>

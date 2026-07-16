@@ -1,0 +1,6 @@
+<article class="post">
+  <span class="eyebrow">Article <%= @article[:id] %></span>
+  <h1><%= h(@article[:title]) %></h1>
+  <div class="post-body"><%= article_body(@article[:body]) %></div>
+</article>
+<nav class="post-nav"><a href="/articles">← 記事一覧へ戻る</a><a href="/articles/new">新しい記事を書く</a></nav>

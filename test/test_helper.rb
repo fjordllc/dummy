@@ -1,13 +1,21 @@
-ENV["RAILS_ENV"] ||= "test"
-require_relative "../config/environment"
-require "rails/test_help"
+# frozen_string_literal: true
 
-class ActiveSupport::TestCase
-  # Run tests in parallel with specified workers
-  parallelize(workers: :number_of_processors)
+ENV['RACK_ENV'] = 'test'
 
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :all
+require 'minitest/autorun'
+require 'rack/test'
+require_relative '../app'
 
-  # Add more helper methods to be used by all tests here...
+class Minitest::Test
+  include Rack::Test::Methods
+
+  def app
+    DummyBlog
+  end
+
+  def setup
+    DummyBlog.settings.articles_mutex.synchronize do
+      DummyBlog.settings.articles.replace(DummyBlog::INITIAL_ARTICLES.map(&:dup))
+    end
+  end
 end
