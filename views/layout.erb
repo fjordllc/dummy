@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= h(@article&.dig(:title) || 'Dummy Blog') %></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="/articles">Dummy Blog</a>
+    <p>telnetでHTTPを学ぶ、小さなブログ</p>
+  </header>
+  <main><%= yield %></main>
+  <footer>Posts live only in this Ruby process.</footer>
+</body>
+</html>
